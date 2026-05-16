@@ -2,6 +2,7 @@
   "name": "ngo-pro-frontend",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://MohammedHafeez077.github.io/Ngo1/",
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",

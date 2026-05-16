@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0f766e" />
     <title>NGO Pro</title>
+    <script type="text/javascript">
+      (function() {
+        if (window.location.search[1] === '/') {
+          var l = window.location;
+          l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.slice(0, -1) + window.location.search.slice(2).replace(/~and~/g, '&')
+          );
+        }
+      }());
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
