@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -22,6 +23,17 @@ app.use("/api/campaigns", require("./routes/campaignRoutes"));
 app.use("/api/donations", require("./routes/donationRoutes"));
 app.use("/api/volunteers", require("./routes/volunteerRoutes"));
 app.use("/api/notifications", require("./routes/notificationRoutes"));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+    res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+  });
+}
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
