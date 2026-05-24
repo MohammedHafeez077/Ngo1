@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || 
   (process.env.NODE_ENV === "production" 
-    ? "https://ngo-pro-backend.up.railway.app/api" 
+    ? "https://YOUR_RAILWAY_URL/api"  // Replace with your Railway URL
     : "http://localhost:5000/api");
 
 const api = axios.create({
